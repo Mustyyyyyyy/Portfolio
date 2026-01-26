@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 font-poppins transition-colors duration-300">
+
+<div class="min-h-screen flex flex-col">
+
+<header class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-25">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-indigo-500 text-2xl font-semibold">Musty</h1>
+
+    <nav class="hidden md:flex space-x-6">
+      <a href="#home" class="text-black dark:text-white hover:text-indigo-500">Home</a>
+      <a href="#about" class="text-black dark:text-white hover:text-indigo-500">About</a>
+      <a href="#skills" class="text-black dark:text-white hover:text-indigo-500">Skills</a>
+      <a href="#services" class="text-black dark:text-white hover:text-indigo-500">Services</a>
+      <a href="#projects" class="text-black dark:text-white hover:text-indigo-500">Projects</a>
+      <a href="#contact" class="text-black dark:text-white hover:text-indigo-500">Contact</a>
+    </nav>
+
+    <button id="theme-toggle" class="text-indigo-500 font-semibold">
+      D / L
+    </button>
+  </div>
+</header>
+
+<section id="home" class="flex flex-col md:flex-row items-center justify-between px-8 py-20 bg-white dark:bg-gray-900">
+  <div class="md:w-1/2">
+    <h2 class="text-5xl font-bold text-black dark:text-white mb-4">
+      Hello, I’m Alagbe Mustapha
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-300">
+      Fullstack Web Developer • Tech Enthusiast
+    </p>
+  </div>
+
+  <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+    <img src="images/woo.jpeg" alt="Profile" class="w-72 h-72 rounded-full object-cover">
+  </div>
+</section>
+
+<section id="about" class="px-8 py-20 bg-gray-50 dark:bg-gray-800">
+  <h2 class="text-4xl font-bold text-indigo-500 mb-6">About Me</h2>
+  <p class="text-lg text-black dark:text-gray-300 max-w-4xl">
+    I’m Alagbe Mustapha, a Fullstack Web Developer passionate about building
+    clean, functional, and visually appealing web applications.
+    I work with HTML, CSS, JavaScript, React, Next.js and modern backend tools
+    to create seamless digital experiences.
+  </p>
+</section>
+
+<section id="skills" class="px-8 py-20 bg-white dark:bg-gray-900">
+  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Skills</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">HTML</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">CSS</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fab fa-js text-4xl text-yellow-400 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">JavaScript</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fab fa-react text-4xl text-cyan-400 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">React</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fas fa-wind text-4xl text-teal-400 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">Tailwind CSS</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fab fa-node text-4xl text-green-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">Node.js</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fas fa-database text-4xl text-indigo-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">MongoDB</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">Git & GitHub</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">Typescript</p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
+      <p class="font-semibold text-black dark:text-white">GraphQL</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="px-8 py-20 bg-gray-50 dark:bg-gray-800">
+  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Services</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+      <i class="fas fa-paint-brush text-indigo-500 text-3xl mb-4"></i>
+      <h3 class="text-xl font-semibold text-black dark:text-white">UI/UX Design</h3>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">
+        Modern, user-focused designs using Figma & Adobe XD.
+      </p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+      <i class="fas fa-code text-indigo-500 text-3xl mb-4"></i>
+      <h3 class="text-xl font-semibold text-black dark:text-white">Web Development</h3>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">
+        Responsive websites with React, Next.js & Tailwind CSS.
+      </p>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+      <i class="fas fa-database text-indigo-500 text-3xl mb-4"></i>
+      <h3 class="text-xl font-semibold text-black dark:text-white">Backend & APIs</h3>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">
+        Secure APIs, databases & server-side logic.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="px-8 py-20 bg-white dark:bg-gray-900">
+  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Projects</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+      <img src="images/mood.png" class="rounded-lg mb-4 h-48 w-full object-cover">
+      <h3 class="text-xl font-semibold text-indigo-500">Moody Mists</h3>
+      <p class="text-black dark:text-gray-300">E-commerce perfume shopping website.</p>
+      <a href="https://pro-rho-six.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
+        View Live →
+      </a>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+      <img src="images/course.png" class="rounded-lg mb-4 h-48 w-full object-cover">
+      <h3 class="text-xl font-semibold text-indigo-500">Course Registration</h3>
+      <p class="text-black dark:text-gray-300">A clean and user-friendly course registration system.</p>
+      <a href="https://course-registration-blue.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
+        View Live →
+      </a>
+    </div>
+
+    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+      <img src="images/space.png" class="rounded-lg mb-4 h-48 w-full object-cover">
+      <h3 class="text-xl font-semibold text-indigo-500">Space-X Clone</h3>
+      <p class="text-black dark:text-gray-300">Pixel-perfect SpaceX landing page clone.</p>
+      <a href="https://space-x-rust.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
+        View Live →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="px-8 py-20 bg-gray-50 dark:bg-gray-800 text-center">
+  <h2 class="text-4xl font-bold text-indigo-500 mb-4">Let’s Work Together</h2>
+
+  <div class="space-y-3 text-lg text-black dark:text-gray-300">
+    <p><i class="fas fa-envelope text-indigo-500 mr-2"></i> alagbemustapha02@gmail.com</p>
+    <p><i class="fas fa-phone text-indigo-500 mr-2"></i> +234 810 911 5088</p>
+    <p><i class="fas fa-map-marker-alt text-indigo-500 mr-2"></i> Ogbomoso, Oyo State, Nigeria</p>
+  </div>
+</section>
+
+<footer class="py-6 bg-white dark:bg-gray-900 text-center">
+  <p class="text-black dark:text-gray-300">
+    © 2026 Alagbe Mustapha — Fullstack Developer
+  </p>
+</footer>
+
+</div>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+</script>
+
+</body>
+</html>
