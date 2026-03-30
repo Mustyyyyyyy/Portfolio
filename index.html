@@ -1,246 +1,423 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alagbe Mustapha | Fullstack Developer</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: "class",
       theme: {
         extend: {
           fontFamily: {
-            poppins: ['Poppins', 'sans-serif'],
+            poppins: ["Poppins", "sans-serif"],
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,0.08)",
           },
         },
       },
-    }
+    };
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #constellation-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass {
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .dark .glass {
+      background: rgba(17, 24, 39, 0.72);
+    }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900 font-poppins transition-colors duration-300">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300">
+  <div class="min-h-screen flex flex-col relative overflow-x-hidden">
 
-<div class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 dark:border-slate-800 glass">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#home" class="text-2xl font-extrabold tracking-tight text-indigo-600">
+          Musty<span class="text-slate-900 dark:text-white">.</span>
+        </a>
 
-<header class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-25">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-indigo-500 text-2xl font-semibold">Musty</h1>
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+          <a href="#home" class="hover:text-indigo-600 transition">Home</a>
+          <a href="#about" class="hover:text-indigo-600 transition">About</a>
+          <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+          <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+          <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+          <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+        </nav>
 
-    <nav class="hidden md:flex space-x-6">
-      <a href="#home" class="text-black dark:text-white hover:text-indigo-500">Home</a>
-      <a href="#about" class="text-black dark:text-white hover:text-indigo-500">About</a>
-      <a href="#skills" class="text-black dark:text-white hover:text-indigo-500">Skills</a>
-      <a href="#services" class="text-black dark:text-white hover:text-indigo-500">Services</a>
-      <a href="#projects" class="text-black dark:text-white hover:text-indigo-500">Projects</a>
-      <a href="#contact" class="text-black dark:text-white hover:text-indigo-500">Contact</a>
-    </nav>
+        <div class="flex items-center gap-3">
+          <a
+            href="#contact"
+            class="hidden md:inline-flex px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
+          >
+            Hire Me
+          </a>
+          <button id="theme-toggle" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 hover:border-indigo-500 transition">
+            <span class="text-sm font-bold">D/L</span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-    <button id="theme-toggle" class="text-indigo-500 font-semibold">
-      D / L
-    </button>
+    <section id="home" class="relative overflow-hidden">
+      <canvas id="constellation-canvas"></canvas>
+
+      <div class="content-layer max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+            Available for opportunities
+          </p>
+
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+            Hello, I’m
+            <span class="text-indigo-600">Alagbe Mustapha</span>
+          </h1>
+
+          <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8">
+            Fullstack Web Developer focused on building clean, scalable, and modern digital products with exceptional user experiences.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" class="px-6 py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">
+              View Projects
+            </a>
+            <a href="#contact" class="px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:border-indigo-500 hover:text-indigo-600 transition">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full"></div>
+            <img
+              src="images/woo.jpeg"
+              alt="Alagbe Mustapha"
+              class="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-[2rem] shadow-2xl border border-slate-200 dark:border-slate-800"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="px-6 py-20 bg-slate-50 dark:bg-slate-900/60">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-[1.2fr_.8fr] gap-12 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">About Me</h2>
+          <p class="text-lg leading-8 text-slate-700 dark:text-slate-300 max-w-4xl">
+            I’m Alagbe Mustapha, a Fullstack Web Developer passionate about building clean, functional, and visually appealing applications.
+            I work with HTML, CSS, JavaScript, React, Next.js, TypeScript, Node.js, and modern backend tools to create seamless digital experiences
+            that are both user-friendly and scalable.
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+            <h3 class="font-semibold mb-2">Experience Focus</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm">Frontend development, backend APIs, dashboards, booking systems, and modern web platforms.</p>
+          </div>
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+            <h3 class="font-semibold mb-2">What I Value</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm">Performance, responsive design, clean architecture, and meaningful user experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="px-6 py-20">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-10">Skills</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">HTML</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">CSS</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">JavaScript</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">React</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">Next.js</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">TypeScript</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">Tailwind CSS</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">Node.js</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">MongoDB</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">GraphQL</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">PostgerSQL</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+            <p class="font-semibold">REST APIs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="px-6 py-20 bg-slate-50 dark:bg-slate-900/60">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-10">Services</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">UI / UX Design</h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-7">
+              Clean and user-focused interface designs that combine aesthetics, accessibility, and usability.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-7">
+              Responsive, scalable, and modern websites built with React, Next.js, and Tailwind CSS.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">Backend & APIs</h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-7">
+              Secure backend systems, API integrations, databases, and server-side logic for robust applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="px-6 py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end justify-between gap-4 flex-wrap mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-indigo-600">Projects</h2>
+          <p class="text-slate-500 dark:text-slate-400">Selected works and live products</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (6).png" class="h-52 w-full object-cover" alt="LA'Kida Luxe">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">LA'Kida Luxe</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">Fashion design website with a clean brand-focused presentation.</p>
+              <a href="https://la-kida-luxe.vercel.app/" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (1).png" class="h-52 w-full object-cover" alt="E-commerce">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">E-commerce</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">A clean and user-friendly e-commerce platform designed for product browsing and seamless shopping.</p>
+              <a href="https://e-commerce-one-zeta-17.vercel.app/" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (5).png" class="h-52 w-full object-cover" alt="Penthouse Apartment">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">The Penthouse Apartment</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">An apartment website design with modern listing presentation and booking flow.</p>
+              <a href="https://the-penthouse-five.vercel.app/" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (3).png" class="h-52 w-full object-cover" alt="Xplore9ja">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">Xplore9ja</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">A tourism platform for discovering and exploring destinations across Nigeria.</p>
+              <a href="https://xplore9ja.vercel.app" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (4).png" class="h-52 w-full object-cover" alt="ORIDE">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">ORIDE</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">A smart ride-hailing platform for passengers and drivers with a modern dashboard experience.</p>
+              <a href="https://ride-app-brown.vercel.app/" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+
+          <div class="group rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:-translate-y-1 transition">
+            <img src="images/Screenshot (2).png" class="h-52 w-full object-cover" alt="E-voting System">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-indigo-600">E-voting System</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300">An online voting platform that enables secure digital voting experiences.</p>
+              <a href="https://e-voting-system-flame-six.vercel.app" target="_blank" class="inline-block mt-4 font-semibold text-indigo-600 hover:underline">View Live →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="px-6 py-20 bg-slate-50 dark:bg-slate-900/60">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-4">Let’s Work Together</h2>
+        <p class="text-slate-600 dark:text-slate-300 text-lg mb-8">
+          I’m open to internships, freelance work, collaborations, and full-time opportunities.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+            <p class="font-semibold">Email</p>
+            <p class="text-slate-600 dark:text-slate-300 mt-2">alagbemustapha02@gmail.com</p>
+          </div>
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+            <p class="font-semibold">Phone</p>
+            <p class="text-slate-600 dark:text-slate-300 mt-2">+234 810 911 5088</p>
+          </div>
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+            <p class="font-semibold">Location</p>
+            <p class="text-slate-600 dark:text-slate-300 mt-2">Lagos State, Nigeria</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          © 2026 Alagbe Mustapha — Fullstack Developer
+        </p>
+
+        <div class="flex items-center gap-6 text-sm font-medium">
+          <a href="https://github.com/mustyyyyyyy" target="_blank" class="hover:text-indigo-600 transition">
+            GitHub
+          </a>
+          <a href="https://vercel.com/adebayos-projects-1eb7ca4e" target="_blank" class="hover:text-indigo-600 transition">
+            Vercel
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
-</header>
 
-<section id="home" class="flex flex-col md:flex-row items-center justify-between px-8 py-20 bg-white dark:bg-gray-900">
-  <div class="md:w-1/2">
-    <h2 class="text-5xl font-bold text-black dark:text-white mb-4">
-      Hello, I’m Alagbe Mustapha
-    </h2>
-    <p class="text-xl text-gray-600 dark:text-gray-300">
-      Fullstack Web Developer • Tech Enthusiast
-    </p>
-  </div>
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
 
-  <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
-    <img src="images/woo.jpeg" alt="Profile" class="w-72 h-72 rounded-full object-cover">
-  </div>
-</section>
+    const canvas = document.getElementById("constellation-canvas");
+    const ctx = canvas.getContext("2d");
 
-<section id="about" class="px-8 py-20 bg-gray-50 dark:bg-gray-800">
-  <h2 class="text-4xl font-bold text-indigo-500 mb-6">About Me</h2>
-  <p class="text-lg text-black dark:text-gray-300 max-w-4xl">
-    I’m Alagbe Mustapha, a Fullstack Web Developer passionate about building
-    clean, functional, and visually appealing web applications.
-    I work with HTML, CSS, JavaScript, React, Next.js and modern backend tools
-    to create seamless digital experiences.
-  </p>
-</section>
+    let particles = [];
+    const count = 70;
 
-<section id="skills" class="px-8 py-20 bg-white dark:bg-gray-900">
-  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Skills</h2>
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">HTML</p>
-    </div>
+    function createParticles() {
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          size: Math.random() * 2 + 1
+        });
+      }
+    }
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">CSS</p>
-    </div>
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fab fa-js text-4xl text-yellow-400 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">JavaScript</p>
-    </div>
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = document.documentElement.classList.contains("dark")
+          ? "rgba(129, 140, 248, 0.8)"
+          : "rgba(99, 102, 241, 0.55)";
+        ctx.fill();
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fab fa-react text-4xl text-cyan-400 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">React</p>
-    </div>
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fas fa-wind text-4xl text-teal-400 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">Tailwind CSS</p>
-    </div>
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = document.documentElement.classList.contains("dark")
+              ? "rgba(129, 140, 248, 0.16)"
+              : "rgba(99, 102, 241, 0.14)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fab fa-node text-4xl text-green-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">Node.js</p>
-    </div>
+        p.x += p.vx;
+        p.y += p.vy;
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fas fa-database text-4xl text-indigo-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">MongoDB</p>
-    </div>
+        if (p.x <= 0 || p.x >= canvas.width) p.vx *= -1;
+        if (p.y <= 0 || p.y >= canvas.height) p.vy *= -1;
+      }
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">Git & GitHub</p>
-    </div>
+      requestAnimationFrame(drawParticles);
+    }
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">Typescript</p>
-    </div>
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      createParticles();
+    });
 
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-      <i class="fas fa-code-branch text-4xl text-pink-500 mb-3"></i>
-      <p class="font-semibold text-black dark:text-white">GraphQL</p>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="px-8 py-20 bg-gray-50 dark:bg-gray-800">
-  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Services</h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
-      <i class="fas fa-paint-brush text-indigo-500 text-3xl mb-4"></i>
-      <h3 class="text-xl font-semibold text-black dark:text-white">UI/UX Design</h3>
-      <p class="text-gray-600 dark:text-gray-300 mt-2">
-        Modern, user-focused designs using Figma & Adobe XD.
-      </p>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
-      <i class="fas fa-code text-indigo-500 text-3xl mb-4"></i>
-      <h3 class="text-xl font-semibold text-black dark:text-white">Web Development</h3>
-      <p class="text-gray-600 dark:text-gray-300 mt-2">
-        Responsive websites with React, Next.js & Tailwind CSS.
-      </p>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
-      <i class="fas fa-database text-indigo-500 text-3xl mb-4"></i>
-      <h3 class="text-xl font-semibold text-black dark:text-white">Backend & APIs</h3>
-      <p class="text-gray-600 dark:text-gray-300 mt-2">
-        Secure APIs, databases & server-side logic.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="px-8 py-20 bg-white dark:bg-gray-900">
-  <h2 class="text-4xl font-bold text-indigo-500 mb-10">Projects</h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/Screenshot (6).png" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">LA'Kida Luxe</h3>
-      <p class="text-black dark:text-gray-300">Fashion design website.</p>
-      <a href="https://la-kida-luxe.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">E-commerce</h3>
-      <p class="text-black dark:text-gray-300">A clean and user-friendly e-commerce system.</p>
-      <a href="https://e-commerce-one-zeta-17.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/Screenshot (5).png" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">The Penthouse Apartment</h3>
-      <p class="text-black dark:text-gray-300">An apartment website design.</p>
-      <a href="https://the-penthouse-five.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-
-
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/Screenshot (3).png" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">Xplore9ja</h3>
-      <p class="text-black dark:text-gray-300">A website for tourists and also for people looking to explore places in Nigeria.</p>
-      <a href="https://xplore9ja.vercel.app" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/Screenshot (4).png" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">ORIDE</h3>
-      <p class="text-black dark:text-gray-300">A Smart ride-hailing platform for passengers and drivers.</p>
-      <a href="https://ride-app-brown.vercel.app/" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-
-    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-      <img src="images/Screenshot (2).png" class="rounded-lg mb-4 h-48 w-full object-cover">
-      <h3 class="text-xl font-semibold text-indigo-500">E-voting System</h3>
-      <p class="text-black dark:text-gray-300">An e-voting website that allows people to vote online without going to a polling unit.</p>
-      <a href="https://e-voting-system-flame-six.vercel.app" target="_blank" class="text-indigo-500 font-semibold mt-3 inline-block">
-        View Live →
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="px-8 py-20 bg-gray-50 dark:bg-gray-800 text-center">
-  <h2 class="text-4xl font-bold text-indigo-500 mb-4">Let’s Work Together</h2>
-
-  <div class="space-y-3 text-lg text-black dark:text-gray-300">
-    <p><i class="fas fa-envelope text-indigo-500 mr-2"></i> alagbemustapha02@gmail.com</p>
-    <p><i class="fas fa-phone text-indigo-500 mr-2"></i> +234 810 911 5088</p>
-    <p><i class="fas fa-map-marker-alt text-indigo-500 mr-2"></i> Ogbomoso, Oyo State, Nigeria</p>
-  </div>
-</section>
-
-<footer class="py-6 bg-white dark:bg-gray-900 text-center">
-  <p class="text-black dark:text-gray-300">
-    © 2026 Alagbe Mustapha — Fullstack Developer
-  </p>
-</footer>
-
-</div>
-
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-  });
-</script>
-
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+  </script>
 </body>
 </html>
